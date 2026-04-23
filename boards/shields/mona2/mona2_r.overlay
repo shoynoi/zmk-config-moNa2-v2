@@ -67,8 +67,8 @@
 &trackball_central_listener {
     status = "okay";
     device = <&trackball_central>;
-    // X軸とY軸を同時に反転（旧moNa2の CONFIG_PMW3610_ORIENTATION_180 相当）
-    input-processors = <&zip_xy_transform (INPUT_TRANSFORM_X_INVERT | INPUT_TRANSFORM_Y_INVERT)>;
+    // Y軸のみ反転（指を前に転がすとカーソルが上に動く）
+    input-processors = <&zip_xy_transform INPUT_TRANSFORM_Y_INVERT>;
 
     scroller {
         layers = <8>;
