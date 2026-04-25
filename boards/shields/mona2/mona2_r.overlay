@@ -1,5 +1,6 @@
 #include "mona2.dtsi"
 #include <input/processors.dtsi>
+#include <scroll-snap.dtsi>
 #include <zephyr/dt-bindings/input/input-event-codes.h>
 
 
@@ -52,7 +53,7 @@
         reg = <0>;
         spi-max-frequency = <2000000>;
         irq-gpios = <&gpio0 2 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>; //P0.02を指定(MOTION)
-        cpi = <600>;
+        cpi = <1400>;
         //swap-xy;
         //invert-x; //COROPIT版ではコメントアウトを外す
         //invert-y; //COROPIT版ではコメントアウトを外す
@@ -67,15 +68,26 @@
 &trackball_central_listener {
     status = "okay";
     device = <&trackball_central>;
+    // Y軸のみ反転（指を前に転がすとカーソルが上に動く）
+    input-processors = <&zip_xy_transform INPUT_TRANSFORM_Y_INVERT>;
 
     scroller {
-        layers = <3>;
-        input-processors = 
-            // <&zip_xy_transform INPUT_TRANSFORM_XY_SWAP>,        //X軸とY軸の入れ替え
-            <&zip_xy_transform INPUT_TRANSFORM_X_INVERT>,       //X軸反転
-            <&zip_xy_to_scroll_mapper>,                         //スクロールモードに変更
-            <&zip_scroll_transform INPUT_TRANSFORM_X_INVERT>,   //スクロールのX軸反転
-            <&zip_scroll_scaler 1 5>;                           //スクロール量を1/4倍
+        layers = <8>;
+        input-processors =
+            // <&zip_xy_transform INPUT_TRANSFORM_XY_SWAP>,                                //X軸とY軸の入れ替え
+            <&zip_xy_transform (INPUT_TRANSFORM_X_INVERT | INPUT_TRANSFORM_Y_INVERT)>,  //X軸とY軸を反転
+            <&zip_xy_to_scroll_mapper>,                                                 //スクロールモードに変更
+            <&zip_scroll_snap>,                                                         //xyスクロールを最寄りの軸にスナップ
+            <&zip_scroll_scaler 1 16>;                                                  //スクロール量を1/16（旧moNa2のCONFIG_PMW3610_SCROLL_TICK=16相当）
     };
 
+};
+
+// スクロール軸スナップのパラメータ調整
+&zip_scroll_snap {
+    require-n-samples = <10>;           // 10サンプル観測してから軸判定
+    immediate-snap-threshold = <1500>;  // 大きな動き(>1500)は即座にスナップ
+    lock-duration-ms = <200>;           // 軸ロックを200ms維持
+    lock-for-next-n-events = <10>;      // 次の10イベントも同じ軸にロック
+    idle-reset-timeout-ms = <200>;      // 200ms無操作でロック解除
 };
