@@ -32,54 +32,50 @@
         bt0: bt0 {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings
-                = <&tog_off 0>
-                , <&tog_off 4>
-                , <&macro_wait_time 200>
-                , <&bt BT_SEL 0>
-                , <&macro_wait_time 500>
-                ;
+            bindings =
+                <&tog_off 0 &tog_off 4>,
+                <&macro_wait_time 200>,
+                <&bt BT_SEL 0>,
+                <&macro_wait_time 500>;
+
             label = "BT0";
         };
 
         bt1: bt1 {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings
-                = <&tog_off 0>
-                , <&tog_off 4>
-                , <&macro_wait_time 200>
-                , <&bt BT_SEL 1>
-                , <&macro_wait_time 500>
-                , <&tog_on 4>
-                ;
+            bindings =
+                <&tog_off 0 &tog_off 4>,
+                <&macro_wait_time 200>,
+                <&bt BT_SEL 1>,
+                <&macro_wait_time 500>,
+                <&tog_on 4>;
+
             label = "BT1";
         };
 
         bt2: bt2 {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings
-                = <&tog_off 0>
-                , <&tog_off 4>
-                , <&macro_wait_time 200>
-                , <&bt BT_SEL 2>
-                , <&macro_wait_time 500>
-                , <&tog_on 4>
-                ;
+            bindings =
+                <&tog_off 0 &tog_off 4>,
+                <&macro_wait_time 200>,
+                <&bt BT_SEL 2>,
+                <&macro_wait_time 500>,
+                <&tog_on 4>;
+
             label = "BT2";
         };
 
         bt3: bt3 {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings
-                = <&tog_off 0>
-                , <&tog_off 4>
-                , <&macro_wait_time 200>
-                , <&bt BT_SEL 3>
-                , <&macro_wait_time 500>
-                ;
+            bindings =
+                <&tog_off 0 &tog_off 4>,
+                <&macro_wait_time 200>,
+                <&bt BT_SEL 3>,
+                <&macro_wait_time 500>;
+
             label = "BT3";
         };
     };
@@ -103,13 +99,6 @@
             label = "LANG";
             #binding-cells = <0>;
             bindings = <&kp LANG2>, <&kp LANG1>;
-        };
-
-        lang_linux: lang_linux {
-            compatible = "zmk,behavior-tap-dance";
-            label = "LANG_LINUX";
-            #binding-cells = <0>;
-            bindings = <&kp INT_MUHENKAN>, <&kp INT_HENKAN>;
         };
 
         hml: hml {
@@ -144,6 +133,7 @@
             compatible = "zmk,behavior-sensor-rotate";
             #sensor-binding-cells = <0>;
             bindings = <&msc SCRL_UP>, <&msc SCRL_DOWN>;
+
             tap-ms = <20>;
             label = "SCROLL_UP_DOWN";
         };
@@ -152,6 +142,7 @@
             compatible = "zmk,behavior-sensor-rotate";
             #sensor-binding-cells = <0>;
             bindings = <&msc SCRL_DOWN>, <&msc SCRL_UP>;
+
             tap-ms = <20>;
             label = "SCROLL_DOWN_UP";
         };
@@ -162,10 +153,10 @@
 
         mac_default_layer {
             bindings = <
-&kp Q            &kp W            &kp E              &kp R         &kp T                                                     &kp Y                          &kp U         &kp I              &kp O            &kp P
-&hml LEFT_GUI A  &hml LEFT_ALT S  &hml LEFT_SHIFT D  &hml LCTRL F  &hml LG(LA(LC(LEFT_SHIFT))) G      &kp GLOBE              &hmr LA(LG(LC(LEFT_SHIFT))) H  &hmr LCTRL J  &hmr LEFT_SHIFT K  &hmr LEFT_ALT L  &hmr LEFT_GUI ESCAPE
-&kp Z            &kp X            &kp C              &kp V         &kp B                          &kp CAPSLOCK  &kp TAB      &kp N                          &kp M         &mkp MB1           &mkp MB2         &lt 8 SLASH
-&kp COMMA        &mo 9            &kp LG(SPACE)      &lt 1 TAB     &mt LEFT_SHIFT SPACE  &lang                   &lt 3 BACKSPACE  &lt 2 ENTER                                                                 &kp PERIOD
+&kp Q            &kp W            &kp E              &kp R         &kp T                                                           &kp Y                          &kp U         &kp I              &kp O            &kp P
+&hml LEFT_GUI A  &hml LEFT_ALT S  &hml LEFT_SHIFT D  &hml LCTRL F  &hml LG(LA(LC(LEFT_SHIFT))) G                  &kp GLOBE        &hmr LA(LG(LC(LEFT_SHIFT))) H  &hmr LCTRL J  &hmr LEFT_SHIFT K  &hmr LEFT_ALT L  &hmr LEFT_GUI ESCAPE
+&kp Z            &kp X            &kp C              &kp V         &kp B                          &kp CAPSLOCK    &kp TAB          &kp N                          &kp M         &mkp MB1           &mkp MB2         &lt 8 SLASH
+&kp COMMA        &mo 9            &kp LG(SPACE)      &lt 1 TAB     &mt LEFT_SHIFT SPACE           &lang           &lt 3 BACKSPACE  &lt 2 ENTER                                                                      &kp PERIOD
             >;
 
             sensor-bindings = <&scroll_down_up>;
@@ -173,10 +164,10 @@
 
         mac_layer_1 {
             bindings = <
-&kp SINGLE_QUOTE  &kp DOUBLE_QUOTES  &kp EQUAL    &none         &kp TILDE                                          &none          &kp UNDERSCORE  &kp LEFT_BRACKET      &kp RIGHT_BRACKET      &kp PLUS
-&kp AT_SIGN       &kp HASH           &kp DOLLAR   &kp ASTERISK  &kp GRAVE                       &trans             &kp CARET      &none           &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS  &kp COLON
-&kp BACKSLASH     &kp EXCLAMATION    &kp PERCENT  &kp PIPE      &none         &trans    &trans  &kp AMPERSAND  &kp MINUS       &kp LEFT_BRACE        &kp RIGHT_BRACE        &kp SEMICOLON
-&trans            &trans             &trans       &trans        &trans        &trans            &kp DELETE     &trans                                                                         &trans
+&kp SINGLE_QUOTE  &kp DOUBLE_QUOTES  &kp EQUAL    &none         &kp TILDE                        &none          &kp UNDERSCORE  &kp LEFT_BRACKET      &kp RIGHT_BRACKET      &kp PLUS
+&kp AT_SIGN       &kp HASH           &kp DOLLAR   &kp ASTERISK  &kp GRAVE            &trans      &kp CARET      &none           &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS  &kp COLON
+&kp BACKSLASH     &kp EXCLAMATION    &kp PERCENT  &kp PIPE      &none      &trans    &trans      &kp AMPERSAND  &kp MINUS       &kp LEFT_BRACE        &kp RIGHT_BRACE        &kp SEMICOLON
+&trans            &trans             &trans       &trans        &trans     &trans    &kp DELETE  &trans                                                                      &trans
             >;
 
             sensor-bindings = <&scroll_down_up>;
@@ -184,10 +175,10 @@
 
         mac_layer_2 {
             bindings = <
-&kp EQUAL  &kp N7        &kp N8        &kp N9        &kp MINUS                                    &trans   &kp HOME     &mkp MB3     &kp END        &kp LS(LG(NUMBER_4))
-&kp N0     &kp NUMBER_4  &kp N5        &kp NUMBER_6  &kp COLON                &trans              &trans   &kp C_PREV   &kp C_PAUSE  &kp C_NEXT     &kp DEL
-&kp SLASH  &kp NUMBER_1  &kp NUMBER_2  &kp NUMBER_3  &kp PERIOD  &trans    &trans  &trans   &kp PAGE_UP  &kp INS      &kp PAGE_DOWN  &trans
-&trans     &trans        &trans        &trans        &trans      &trans            &trans   &trans                                                  &trans
+&kp EQUAL  &kp N7        &kp N8        &kp N9        &kp MINUS                     &trans  &kp HOME     &mkp MB3     &kp END        &kp LS(LG(NUMBER_4))
+&kp N0     &kp NUMBER_4  &kp N5        &kp NUMBER_6  &kp COLON             &trans  &trans  &kp C_PREV   &kp C_PAUSE  &kp C_NEXT     &kp DEL
+&kp SLASH  &kp NUMBER_1  &kp NUMBER_2  &kp NUMBER_3  &kp PERIOD  &trans    &trans  &trans  &kp PAGE_UP  &kp INS      &kp PAGE_DOWN  &trans
+&trans     &trans        &trans        &trans        &trans      &trans    &trans  &trans                                           &trans
             >;
 
             sensor-bindings = <&inc_dec_kp C_VOLUME_DOWN C_VOLUME_UP>;
@@ -195,10 +186,10 @@
 
         mac_layer_3 {
             bindings = <
-&kp F12           &kp F7           &kp F8             &kp F9        &kp F15                                            &trans          &kp LS(LG(LEFT_BRACKET))  &kp F11       &kp LG(LS(RIGHT_BRACKET))  &kp LC(N9)
-&mt LEFT_GUI F11  &mt LEFT_ALT F4  &mt LEFT_SHIFT F5  &mt LCTRL F6  &kp F14                       &trans              &kp LEFT_ARROW  &kp DOWN                  &kp UP_ARROW  &kp RIGHT                  &trans
-&kp F10           &kp F1           &kp F2             &kp F3        &kp F13  &trans    &trans    &trans          &kp LG(LEFT_BRACKET)      &trans        &kp LG(RIGHT_BRACKET)      &trans
-&trans            &trans           &trans             &trans        &trans   &trans              &trans          &trans                                                                                &trans
+&kp F12           &kp F7           &kp F8             &kp F9        &kp F15                    &trans          &kp LS(LG(LEFT_BRACKET))  &kp F11       &kp LG(LS(RIGHT_BRACKET))  &kp LC(N9)
+&mt LEFT_GUI F11  &mt LEFT_ALT F4  &mt LEFT_SHIFT F5  &mt LCTRL F6  &kp F14            &trans  &kp LEFT_ARROW  &kp DOWN                  &kp UP_ARROW  &kp RIGHT                  &trans
+&kp F10           &kp F1           &kp F2             &kp F3        &kp F13  &trans    &trans  &trans          &kp LG(LEFT_BRACKET)      &trans        &kp LG(RIGHT_BRACKET)      &trans
+&trans            &trans           &trans             &trans        &trans   &trans    &trans  &trans                                                                             &trans
             >;
 
             sensor-bindings = <&inc_dec_kp C_BRIGHTNESS_DEC C_BRIGHTNESS_INC>;
@@ -206,10 +197,10 @@
 
         linux_default_layer {
             bindings = <
-&kp Q            &kp W            &kp E              &kp R         &kp T                                                     &kp Y                          &kp U         &kp I              &kp O            &kp P
-&hml LEFT_GUI A  &hml LEFT_ALT S  &hml LEFT_SHIFT D  &hml LCTRL F  &hml LA(LG(LC(LEFT_SHIFT))) G      &kp LG(LC(X))          &hmr LA(LC(LG(LEFT_SHIFT))) H  &hmr LCTRL J  &hmr LEFT_SHIFT K  &hmr LEFT_ALT L  &hmr LEFT_GUI ESCAPE
-&kp Z            &kp X            &kp C              &kp V         &kp B                          &kp CAPSLOCK  &kp TAB      &kp N                          &kp M         &mkp MB1           &mkp MB2         &lt 8 SLASH
-&kp COMMA        &mo 9            &kp LG(SPACE)      &lt 5 TAB     &mt LEFT_SHIFT SPACE  &lang_linux             &lt 7 BACKSPACE  &lt 6 ENTER                                                                 &kp PERIOD
+&kp Q            &kp W            &kp E              &kp R         &kp T                                                           &kp Y                          &kp U         &kp I              &kp O            &kp P
+&hml LEFT_GUI A  &hml LEFT_ALT S  &hml LEFT_SHIFT D  &hml LCTRL F  &hml LA(LG(LC(LEFT_SHIFT))) G                  &kp LG(LC(X))    &hmr LA(LC(LG(LEFT_SHIFT))) H  &hmr LCTRL J  &hmr LEFT_SHIFT K  &hmr LEFT_ALT L  &hmr LEFT_GUI ESCAPE
+&kp Z            &kp X            &kp C              &kp V         &kp B                          &kp CAPSLOCK    &kp TAB          &kp N                          &kp M         &mkp MB1           &mkp MB2         &lt 8 SLASH
+&kp COMMA        &mo 9            &kp LG(SPACE)      &lt 5 TAB     &mt LEFT_SHIFT SPACE           &lang           &lt 7 BACKSPACE  &lt 6 ENTER                                                                      &kp PERIOD
             >;
 
             sensor-bindings = <&scroll_down_up>;
@@ -217,10 +208,10 @@
 
         linux_layer_1 {
             bindings = <
-&kp SINGLE_QUOTE  &kp DOUBLE_QUOTES  &kp EQUAL    &none         &kp TILDE                                          &none          &kp UNDERSCORE  &kp LEFT_BRACKET      &kp RIGHT_BRACKET      &kp PLUS
-&kp AT_SIGN       &kp HASH           &kp DOLLAR   &kp ASTERISK  &kp GRAVE                       &trans             &kp CARET      &none           &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS  &kp COLON
-&kp BACKSLASH     &kp EXCLAMATION    &kp PERCENT  &kp PIPE      &none         &trans    &trans  &kp AMPERSAND  &kp MINUS       &kp LEFT_BRACE        &kp RIGHT_BRACE        &kp SEMICOLON
-&trans            &trans             &trans       &trans        &trans        &trans            &kp DELETE     &trans                                                                         &trans
+&kp SINGLE_QUOTE  &kp DOUBLE_QUOTES  &kp EQUAL    &none         &kp TILDE                        &none          &kp UNDERSCORE  &kp LEFT_BRACKET      &kp RIGHT_BRACKET      &kp PLUS
+&kp AT_SIGN       &kp HASH           &kp DOLLAR   &kp ASTERISK  &kp GRAVE            &trans      &kp CARET      &none           &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS  &kp COLON
+&kp BACKSLASH     &kp EXCLAMATION    &kp PERCENT  &kp PIPE      &none      &trans    &trans      &kp AMPERSAND  &kp MINUS       &kp LEFT_BRACE        &kp RIGHT_BRACE        &kp SEMICOLON
+&trans            &trans             &trans       &trans        &trans     &trans    &kp DELETE  &trans                                                                      &trans
             >;
 
             sensor-bindings = <&scroll_down_up>;
@@ -228,10 +219,10 @@
 
         linux_layer_2 {
             bindings = <
-&kp EQUAL  &kp N7        &kp N8        &kp N9        &kp MINUS                                    &trans   &kp HOME     &mkp MB3     &kp END        &kp PRINTSCREEN
-&kp N0     &kp NUMBER_4  &kp N5        &kp NUMBER_6  &kp COLON                &trans              &trans   &kp C_PREV   &kp C_PAUSE  &kp C_NEXT     &kp LS(PRINTSCREEN)
-&kp SLASH  &kp NUMBER_1  &kp NUMBER_2  &kp NUMBER_3  &kp PERIOD  &trans    &trans  &trans   &kp PAGE_UP  &kp INS      &kp PAGE_DOWN  &kp LA(PRINTSCREEN)
-&trans     &trans        &trans        &trans        &trans      &trans            &trans   &trans                                                  &trans
+&kp EQUAL  &kp N7        &kp N8        &kp N9        &kp MINUS                     &trans  &kp HOME     &mkp MB3     &kp END        &kp PRINTSCREEN
+&kp N0     &kp NUMBER_4  &kp N5        &kp NUMBER_6  &kp COLON             &trans  &trans  &kp C_PREV   &kp C_PAUSE  &kp C_NEXT     &kp LS(PRINTSCREEN)
+&kp SLASH  &kp NUMBER_1  &kp NUMBER_2  &kp NUMBER_3  &kp PERIOD  &trans    &trans  &trans  &kp PAGE_UP  &kp INS      &kp PAGE_DOWN  &kp LA(PRINTSCREEN)
+&trans     &trans        &trans        &trans        &trans      &trans    &trans  &trans                                           &trans
             >;
 
             sensor-bindings = <&inc_dec_kp C_VOLUME_DOWN C_VOLUME_UP>;
@@ -239,10 +230,10 @@
 
         linux_layer_3 {
             bindings = <
-&kp F12           &kp F7           &kp F8             &kp F9        &kp F15                                            &trans          &kp LC(PAGE_UP)       &kp F11       &kp LC(PAGE_DOWN)      &kp LC(N9)
-&mt LEFT_GUI F11  &mt LEFT_ALT F4  &mt LEFT_SHIFT F5  &mt LCTRL F6  &kp F14                       &trans              &kp LEFT_ARROW  &kp DOWN              &kp UP_ARROW  &kp RIGHT              &trans
-&kp F10           &kp F1           &kp F2             &kp F3        &kp F13  &trans    &trans    &trans          &kp LG(LEFT_BRACKET)  &trans        &kp LG(RIGHT_BRACKET)  &trans
-&trans            &trans           &trans             &trans        &trans   &trans              &trans          &trans                                                                        &trans
+&kp F12           &kp F7           &kp F8             &kp F9        &kp F15                    &trans          &kp LC(PAGE_UP)       &kp F11       &kp LC(PAGE_DOWN)      &kp LC(N9)
+&mt LEFT_GUI F11  &mt LEFT_ALT F4  &mt LEFT_SHIFT F5  &mt LCTRL F6  &kp F14            &trans  &kp LEFT_ARROW  &kp DOWN              &kp UP_ARROW  &kp RIGHT              &trans
+&kp F10           &kp F1           &kp F2             &kp F3        &kp F13  &trans    &trans  &trans          &kp LG(LEFT_BRACKET)  &trans        &kp LG(RIGHT_BRACKET)  &trans
+&trans            &trans           &trans             &trans        &trans   &trans    &trans  &trans                                                                     &trans
             >;
 
             sensor-bindings = <&inc_dec_kp C_BRIGHTNESS_DEC C_BRIGHTNESS_INC>;
@@ -250,10 +241,10 @@
 
         SCROLL {
             bindings = <
-&trans  &trans  &trans  &trans  &trans                            &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans          &trans            &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans          &trans    &trans                          &trans
+&trans  &trans  &trans  &trans  &trans                    &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans            &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans                          &trans
             >;
 
             sensor-bindings = <&scroll_down_up>;
@@ -261,10 +252,10 @@
 
         system {
             bindings = <
-&bt BT_CLR_ALL  &trans  &trans  &trans  &trans                                &trans       &trans  &trans  &trans  &trans
-&trans          &bt3    &trans  &trans  &trans                  &trans        &trans       &trans  &trans  &trans  &trans
-&trans          &bt0    &bt1    &bt2    &trans  &trans  &bootloader    &trans  &trans  &trans  &trans  &trans
-&trans          &trans  &trans  &trans  &trans  &trans          &trans        &trans                                &trans
+&bt BT_CLR_ALL  &trans  &trans  &trans  &trans                         &trans  &trans  &trans  &trans  &trans
+&trans          &bt3    &trans  &trans  &trans            &trans       &trans  &trans  &trans  &trans  &trans
+&trans          &bt0    &bt1    &bt2    &trans  &trans    &bootloader  &trans  &trans  &trans  &trans  &trans
+&trans          &trans  &trans  &trans  &trans  &trans    &trans       &trans                          &trans
             >;
         };
     };
