@@ -78,7 +78,6 @@
             <&zip_xy_transform (INPUT_TRANSFORM_X_INVERT | INPUT_TRANSFORM_Y_INVERT)>,  //X軸とY軸を反転
             <&zip_xy_to_scroll_mapper>,                                                 //スクロールモードに変更
             <&zip_scroll_snap>,                                                         //xyスクロールを最寄りの軸にスナップ
-            <&zip_scroll_transform INPUT_TRANSFORM_X_INVERT>,                           //スクロールのX軸反転
             <&zip_scroll_scaler 1 16>;                                                  //スクロール量を1/16（旧moNa2のCONFIG_PMW3610_SCROLL_TICK=16相当）
     };
 
