@@ -82,7 +82,7 @@
         tog_10: tog_10 {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings = <&tog_off 0 &tog_off 10>;
+            bindings = <&tog_off 0 &tog_on 10>;
             label = "TOG_10";
         };
     };
