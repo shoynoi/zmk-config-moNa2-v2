@@ -391,7 +391,7 @@ layers:
   - BT CLR ALL
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
+  - '&tog_10'
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
@@ -430,6 +430,49 @@ layers:
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
+  '10':
+  - Q
+  - W
+  - E
+  - R
+  - T
+  - Y
+  - U
+  - I
+  - O
+  - P
+  - A
+  - S
+  - D
+  - F
+  - G
+  - GLOBE
+  - H
+  - J
+  - K
+  - L
+  - {t: ESCAPE, h: LEFT GUI}
+  - Z
+  - X
+  - C
+  - V
+  - B
+  - CAPSLOCK
+  - TAB
+  - N
+  - M
+  - '&mkp MB1'
+  - '&mkp MB2'
+  - {t: /, h: SCROLL}
+  - ','
+  - system
+  - Gui+SPACE
+  - TAB
+  - {t: SPACE, h: LEFT SHIFT}
+  - '&lang'
+  - BACKSPACE
+  - ENTER
+  - .
 combos:
 - p: [38, 39]
   k: {t: ESC, h: system}
