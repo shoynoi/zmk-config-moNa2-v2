@@ -23,7 +23,7 @@
         compatible = "zmk,combos";
 
         system_ESC {
-            bindings = <&lt 9 ESC>;
+            bindings = <&lt 10 ESC>;
             key-positions = <38 39>;
         };
     };
@@ -82,7 +82,7 @@
         tog_10: tog_10 {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings = <&tog_off 0 &tog_on 10>;
+            bindings = <&tog_off 0 &tog_on 9>;
             label = "TOG_10";
         };
     };
@@ -163,7 +163,7 @@
 &kp Q            &kp W            &kp E              &kp R         &kp T                                                           &kp Y                          &kp U         &kp I              &kp O            &kp P
 &hml LEFT_GUI A  &hml LEFT_ALT S  &hml LEFT_SHIFT D  &hml LCTRL F  &hml LG(LA(LC(LEFT_SHIFT))) G                  &kp GLOBE        &hmr LA(LG(LC(LEFT_SHIFT))) H  &hmr LCTRL J  &hmr LEFT_SHIFT K  &hmr LEFT_ALT L  &hmr LEFT_GUI ESCAPE
 &kp Z            &kp X            &kp C              &kp V         &kp B                          &kp CAPSLOCK    &kp TAB          &kp N                          &kp M         &mkp MB1           &mkp MB2         &lt 8 SLASH
-&kp COMMA        &mo 9            &kp LG(SPACE)      &lt 1 TAB     &mt LEFT_SHIFT SPACE           &lang           &lt 3 BACKSPACE  &lt 2 ENTER                                                                      &kp PERIOD
+&kp COMMA        &mo 10           &kp LG(SPACE)      &lt 1 TAB     &mt LEFT_SHIFT SPACE           &lang           &lt 3 BACKSPACE  &lt 2 ENTER                                                                      &kp PERIOD
             >;
 
             sensor-bindings = <&scroll_down_up>;
@@ -207,7 +207,7 @@
 &kp Q            &kp W            &kp E              &kp R         &kp T                                                           &kp Y                          &kp U         &kp I              &kp O            &kp P
 &hml LEFT_GUI A  &hml LEFT_ALT S  &hml LEFT_SHIFT D  &hml LCTRL F  &hml LA(LG(LC(LEFT_SHIFT))) G                  &kp LG(LC(X))    &hmr LA(LC(LG(LEFT_SHIFT))) H  &hmr LCTRL J  &hmr LEFT_SHIFT K  &hmr LEFT_ALT L  &hmr LEFT_GUI ESCAPE
 &kp Z            &kp X            &kp C              &kp V         &kp B                          &kp CAPSLOCK    &kp TAB          &kp N                          &kp M         &mkp MB1           &mkp MB2         &lt 8 SLASH
-&kp COMMA        &mo 9            &kp LG(SPACE)      &lt 5 TAB     &mt LEFT_SHIFT SPACE           &lang           &lt 7 BACKSPACE  &lt 6 ENTER                                                                      &kp PERIOD
+&kp COMMA        &mo 10           &kp LG(SPACE)      &lt 5 TAB     &mt LEFT_SHIFT SPACE           &lang           &lt 7 BACKSPACE  &lt 6 ENTER                                                                      &kp PERIOD
             >;
 
             sensor-bindings = <&scroll_down_up>;
@@ -257,6 +257,17 @@
             sensor-bindings = <&scroll_down_up>;
         };
 
+        layer_9 {
+            bindings = <
+&kp Q      &kp W   &kp E          &kp R    &kp T                                                &kp Y      &kp U  &kp I     &kp O     &kp P
+&kp A      &kp S   &kp D          &kp F    &kp G                                 &kp GLOBE      &kp H      &kp J  &kp K     &kp L     &hmr LEFT_GUI ESCAPE
+&kp Z      &kp X   &kp C          &kp V    &kp B                 &kp CAPSLOCK    &kp TAB        &kp N      &kp M  &mkp MB1  &mkp MB2  &lt 8 SLASH
+&kp COMMA  &mo 10  &kp LG(SPACE)  &kp TAB  &mt LEFT_SHIFT SPACE  &lang           &kp BACKSPACE  &kp ENTER                             &kp PERIOD
+            >;
+
+            sensor-bindings = <&scroll_down_up>;
+        };
+
         system {
             bindings = <
 &bt BT_CLR_ALL  &trans  &trans  &tog_10  &trans                         &trans  &trans  &trans  &trans  &trans
@@ -264,17 +275,6 @@
 &trans          &bt0    &bt1    &bt2     &trans  &trans    &bootloader  &trans  &trans  &trans  &trans  &trans
 &trans          &trans  &trans  &trans   &trans  &trans    &trans       &trans                          &trans
             >;
-        };
-
-        layer_10 {
-            bindings = <
-&kp Q      &kp W  &kp E          &kp R    &kp T                                                &kp Y      &kp U  &kp I     &kp O     &kp P
-&kp A      &kp S  &kp D          &kp F    &kp G                                 &kp GLOBE      &kp H      &kp J  &kp K     &kp L     &hmr LEFT_GUI ESCAPE
-&kp Z      &kp X  &kp C          &kp V    &kp B                 &kp CAPSLOCK    &kp TAB        &kp N      &kp M  &mkp MB1  &mkp MB2  &lt 8 SLASH
-&kp COMMA  &mo 9  &kp LG(SPACE)  &kp TAB  &mt LEFT_SHIFT SPACE  &lang           &kp BACKSPACE  &kp ENTER                             &kp PERIOD
-            >;
-
-            sensor-bindings = <&scroll_down_up>;
         };
     };
 };
