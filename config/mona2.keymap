@@ -78,6 +78,13 @@
 
             label = "BT3";
         };
+
+        tog_10: tog_10 {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&tog_off 0 &tog_off 10>;
+            label = "TOG_10";
+        };
     };
 
     behaviors {
@@ -252,11 +259,22 @@
 
         system {
             bindings = <
-&bt BT_CLR_ALL  &trans  &trans  &trans  &trans                         &trans  &trans  &trans  &trans  &trans
-&trans          &bt3    &trans  &trans  &trans            &trans       &trans  &trans  &trans  &trans  &trans
-&trans          &bt0    &bt1    &bt2    &trans  &trans    &bootloader  &trans  &trans  &trans  &trans  &trans
-&trans          &trans  &trans  &trans  &trans  &trans    &trans       &trans                          &trans
+&bt BT_CLR_ALL  &trans  &trans  &tog_10  &trans                         &trans  &trans  &trans  &trans  &trans
+&trans          &bt3    &trans  &trans   &trans            &trans       &trans  &trans  &trans  &trans  &trans
+&trans          &bt0    &bt1    &bt2     &trans  &trans    &bootloader  &trans  &trans  &trans  &trans  &trans
+&trans          &trans  &trans  &trans   &trans  &trans    &trans       &trans                          &trans
             >;
+        };
+
+        layer_10 {
+            bindings = <
+&kp Q      &kp W  &kp E          &kp R    &kp T                                                &kp Y      &kp U  &kp I     &kp O     &kp P
+&kp A      &kp S  &kp D          &kp F    &kp G                                 &kp GLOBE      &kp H      &kp J  &kp K     &kp L     &hmr LEFT_GUI ESCAPE
+&kp Z      &kp X  &kp C          &kp V    &kp B                 &kp CAPSLOCK    &kp TAB        &kp N      &kp M  &mkp MB1  &mkp MB2  &lt 8 SLASH
+&kp COMMA  &mo 9  &kp LG(SPACE)  &kp TAB  &mt LEFT_SHIFT SPACE  &lang           &kp BACKSPACE  &kp ENTER                             &kp PERIOD
+            >;
+
+            sensor-bindings = <&scroll_down_up>;
         };
     };
 };
