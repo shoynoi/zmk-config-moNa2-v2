@@ -33,7 +33,7 @@
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             bindings =
-                <&tog_off 0 &tog_off 4>,
+                <&tog_off 0 &tog_off 4 &tog_off 9>,
                 <&macro_wait_time 200>,
                 <&bt BT_SEL 0>,
                 <&macro_wait_time 500>;
@@ -45,7 +45,7 @@
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             bindings =
-                <&tog_off 0 &tog_off 4>,
+                <&tog_off 0 &tog_off 4 &tog_off 9>,
                 <&macro_wait_time 200>,
                 <&bt BT_SEL 1>,
                 <&macro_wait_time 500>,
@@ -58,7 +58,7 @@
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             bindings =
-                <&tog_off 0 &tog_off 4>,
+                <&tog_off 0 &tog_off 4 &tog_off 9>,
                 <&macro_wait_time 200>,
                 <&bt BT_SEL 2>,
                 <&macro_wait_time 500>,
@@ -71,7 +71,7 @@
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             bindings =
-                <&tog_off 0 &tog_off 4>,
+                <&tog_off 0 &tog_off 4 &tog_off 9>,
                 <&macro_wait_time 200>,
                 <&bt BT_SEL 3>,
                 <&macro_wait_time 500>;
@@ -79,10 +79,14 @@
             label = "BT3";
         };
 
-        tog_10: tog_10 {
+        tog_9: tog_10 {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings = <&tog_off 0 &tog_on 9>;
+            bindings =
+                <&tog_off 0 &tog_off 4 &tog_off 9>,
+                <&macro_wait_time 200>,
+                <&tog_on 9>;
+
             label = "TOG_10";
         };
     };
@@ -270,10 +274,10 @@
 
         system {
             bindings = <
-&bt BT_CLR_ALL  &trans  &trans  &tog_10  &trans                         &trans  &trans  &trans  &trans  &trans
-&trans          &bt3    &trans  &trans   &trans            &trans       &trans  &trans  &trans  &trans  &trans
-&trans          &bt0    &bt1    &bt2     &trans  &trans    &bootloader  &trans  &trans  &trans  &trans  &trans
-&trans          &trans  &trans  &trans   &trans  &trans    &trans       &trans                          &trans
+&bt BT_CLR_ALL  &trans  &trans  &tog_9  &trans                         &trans  &trans  &trans  &trans  &trans
+&trans          &bt3    &trans  &trans  &trans            &trans       &trans  &trans  &trans  &trans  &trans
+&trans          &bt0    &bt1    &bt2    &trans  &trans    &bootloader  &trans  &trans  &trans  &trans  &trans
+&trans          &trans  &trans  &trans  &trans  &trans    &trans       &trans                          &trans
             >;
         };
     };
